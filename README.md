@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Martin Galdeca's Personal Website - martingaldeca.com
 
-## Getting Started
+![CI/CD Pipeline](https://github.com/martingaldeca/martingaldeca.com/actions/workflows/ci-cd.yml/badge.svg)
+![Lines of Code](https://img.shields.io/tokei/lines/github/martingaldeca/martingaldeca.com)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&style=flat-square)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-blue?logo=react&style=flat-square)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&style=flat-square)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?logo=tailwind-css&style=flat-square)](https://tailwindcss.com/)
+[![Playwright](https://img.shields.io/badge/Playwright-Test-green?logo=playwright&style=flat-square)](https://playwright.dev/)
+[![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://prettier.io/)
 
-First, run the development server:
+A modern, high-performance personal portfolio and blog built with the latest web technologies. This project serves as my digital garden for essays, thoughts, and showcase of my work.
+
+## 🚀 Features
+
+- **Standard & Modern Stack**: Built with Next.js 16 (App Router) & React 19.
+- **Performance First**: Optimized with Turbopack and static generation for essays.
+- **Internationalization**: Full i18n support (English/Spanish) using `next-intl`.
+- **Mathematical Typography**: Essays rendered with KaTeX support via `react-markdown` and `rehype-katex`.
+- **Theming**: Dark/Light mode with seamless transitions.
+- **Animations**: Fluid interactions powered by Framer Motion.
+- **Robust Testing**: Comprehensive E2E and Component testing suite with Playwright.
+- **Quality Assurance**: Automated linting, formatting, and type-checking via GitHub Actions.
+
+## 🛠️ Tech Stack
+
+### Core
+- **Framework**: [Next.js 16](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+
+### Content & Logic
+- **i18n**: [next-intl](https://next-intl-docs.vercel.app/)
+- **Markdown**: `react-markdown`, `rehype-katex`, `remark-math`, `rehype-raw`
+
+### Tooling & QA
+- **Package Manager**: [pnpm](https://pnpm.io/)
+- **Testing**: [Playwright](https://playwright.dev/)
+- **Linting**: [ESLint](https://eslint.org/)
+- **Formatting**: [Prettier](https://prettier.io/)
+- **CI/CD**: GitHub Actions
+
+## 📦 Installation & Setup
+
+Ensure you have Node.js 20+ and pnpm installed.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Clone the repository
+git clone https://github.com/martingaldeca/martingaldeca.com.git
+cd martingaldeca.com
+
+# Install dependencies (frozen lockfile recommended)
+pnpm install --frozen-lockfile
+
+# Run development server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✅ Quality Assurance
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project maintains high code quality standards through automated checks.
 
-## Learn More
+### Run Tests
 
-To learn more about Next.js, take a look at the following resources:
+We use Playwright for both End-to-End (E2E) and Component Testing (CT).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Run all tests (E2E + CT)
+pnpm test
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Run only E2E tests
+pnpm run test:e2e
 
-## Deploy on Vercel
+# Run only Component tests
+pnpm run test:ct
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Linting & Formatting
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To verify code style and static analysis:
+
+```bash
+# Run full validation suite (Typecheck, Format check, Lint, Audit)
+pnpm run validate
+
+# Fix linting issues automatically
+pnpm run lint:fix
+
+# Format code with Prettier
+pnpm run format
+```
+
+## 🚀 Deployment
+
+The project is automatically deployed to production via GitHub Actions upon pushing to the `main` branch. The pipeline:
+
+1.  **Validates**: Runs linting, type-checking, and audits.
+2.  **Tests**: Executes the full Playwright test suite.
+3.  **Builds**: Verifies the production build succeeds.
+4.  **Deploys**: Updates the production server using SSH and PM2 (zero-downtime, utilizing `APP_PORT`).
+
+---
+*Created by [Martin Galdeca](https://martingaldeca.com)*
