@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import ProjectCard from "@/components/molecules/ProjectCard";
 import SectionHeader from "@/components/molecules/SectionHeader";
 
-
 import atlasImg from "@/assets/projects/ideological-atlas/cover.png";
 import debaiteImg from "@/assets/projects/debaite/cover.png";
 import katiaImg from "@/assets/projects/katia/cover.png";

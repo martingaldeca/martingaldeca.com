@@ -17,7 +17,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { essaysMetadata } from "@/lib/essays-data";
 
-
 import laLunaCover from "@/assets/music/la-luna-cover.jpg";
 import libreCover from "@/assets/music/libre-cover.jpeg";
 
@@ -39,8 +38,6 @@ const PersonalContent = () => {
   const t = useTranslations("Personal");
   const locale = useLocale();
 
-  
-  
   const [expandedSection, setExpandedSection] = useState<
     "poetry" | "essays" | "music" | null
   >("poetry");

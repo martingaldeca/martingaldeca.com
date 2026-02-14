@@ -7,14 +7,13 @@ import "./SectionHeader.css";
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
-  
+
   children?: React.ReactNode;
-  
+
   gradientColors?: string[];
-  
+
   gradientSpeed?: number;
 }
-
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,

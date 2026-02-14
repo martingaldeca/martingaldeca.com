@@ -42,7 +42,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     setMounted(true);
   }, []);
 
-  
   useEffect(() => {
     if (!mounted) return;
     const root = document.documentElement;
@@ -59,19 +58,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     const direction = next === "dark" ? "to-dark" : "to-light";
     const root = document.documentElement;
 
-    
     if (!document.startViewTransition) {
-      
       setTheme(next);
       return;
     }
 
-    
     root.setAttribute("data-theme-transition", direction);
 
     const transition = document.startViewTransition(() => {
-      
-      
       flushSync(() => {
         setTheme(next);
       });
@@ -82,7 +76,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     });
   }, [theme]);
 
-  
   if (!mounted) {
     return (
       <ThemeContext.Provider value={{ theme: "dark", toggleTheme }}>

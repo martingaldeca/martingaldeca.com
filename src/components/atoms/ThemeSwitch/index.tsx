@@ -6,7 +6,6 @@ import { useTheme } from "@/components/providers/ThemeProvider";
 import { Sun, Moon } from "lucide-react";
 import "./ThemeSwitch.css";
 
-
 const ThemeSwitch: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";

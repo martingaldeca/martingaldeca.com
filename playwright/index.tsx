@@ -6,10 +6,6 @@ import "../src/app/globals.css";
 
 export type HooksConfig = Record<string, unknown>;
 
-beforeMount(async () => {
-  
-});
+beforeMount(async () => {});
 
-afterMount(async () => {
-  
-});
+afterMount(async () => {});

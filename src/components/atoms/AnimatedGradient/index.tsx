@@ -10,7 +10,6 @@ interface AnimatedGradientProps {
   blur?: number;
 }
 
-
 const AnimatedGradient: React.FC<AnimatedGradientProps> = ({
   className = "",
   colors = ["#0F4C81", "#FF7E21", "#1a6bba", "#FF5722", "#0F4C81"],

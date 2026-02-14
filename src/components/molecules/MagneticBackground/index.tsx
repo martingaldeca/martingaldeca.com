@@ -25,11 +25,10 @@ const MagneticBackground = () => {
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
-      
+
       const clientX = e.clientX - rect.left;
       const clientY = e.clientY - rect.top;
 
-      
       const scaleX =
         canvas.width / (rect.width * (window.devicePixelRatio || 1));
       const scaleY =
@@ -42,10 +41,9 @@ const MagneticBackground = () => {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const gap = 40; 
-      const length = 20; 
+      const gap = 40;
+      const length = 20;
 
-      
       const width = window.innerWidth;
       const height = window.innerHeight;
 
@@ -64,17 +62,14 @@ const MagneticBackground = () => {
           const x = i * gap + gap / 2;
           const y = j * gap + gap / 2;
 
-          
           const dx = mouseX - x;
           const dy = mouseY - y;
 
-          
           const dist = Math.sqrt(dx * dx + dy * dy);
           let angle = Math.atan2(dy, dx);
 
-          
           if (dist > 800) {
-            angle = 0; 
+            angle = 0;
           }
 
           ctx.save();
@@ -108,12 +103,12 @@ const MagneticBackground = () => {
     <canvas
       ref={canvasRef}
       style={{
-        position: "absolute", 
+        position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
         height: "100%",
-        pointerEvents: "none", 
+        pointerEvents: "none",
         zIndex: 0,
       }}
     />

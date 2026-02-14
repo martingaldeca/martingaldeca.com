@@ -11,15 +11,9 @@ test("RippleButton renders correctly as a button", async ({ mount }) => {
   );
 
   await expect(component).toContainText("Click Me");
-  await expect(component).toHaveClass(/shadow-lg/); 
+  await expect(component).toHaveClass(/shadow-lg/);
 
-  
-  
-  
   await component.click();
-  
-  
-  
 });
 
 test("RippleButton renders as secondary variant", async ({ mount }) => {
@@ -28,11 +22,8 @@ test("RippleButton renders as secondary variant", async ({ mount }) => {
   );
 
   await expect(component).toContainText("Secondary");
-  
+
   await expect(component).toHaveCSS("border-style", "solid");
-  
+
   await expect(component).toHaveAttribute("style", /border/);
 });
-
-
-

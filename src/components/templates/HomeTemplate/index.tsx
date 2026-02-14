@@ -22,9 +22,7 @@ export default function HomeTemplate() {
           © {new Date().getFullYear()} Martín Galdeano Cañizares. All rights
           reserved.
         </p>
-        <div className="flex justify-center gap-6 mt-4">
-          {}
-        </div>
+        <div className="flex justify-center gap-6 mt-4">{}</div>
       </footer>
     </div>
   );

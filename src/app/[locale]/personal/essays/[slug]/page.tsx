@@ -27,7 +27,7 @@ export async function generateMetadata({
 
   if (!metadata) {
     return {
-      title: "Log In | Martín Galdeano Cañizares", 
+      title: "Log In | Martín Galdeano Cañizares",
     };
   }
 
@@ -49,7 +49,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: title,
-      description: summary, 
+      description: summary,
       images: [metadata.cover],
     },
     alternates: {

@@ -8,7 +8,7 @@ interface RippleProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
   children?: React.ReactNode;
   variant?: "primary" | "secondary" | "ghost";
-  className?: string; 
+  className?: string;
 }
 
 interface RippleEffect {
@@ -28,7 +28,6 @@ const RippleButton = ({
 }: RippleProps) => {
   const [ripples, setRipples] = useState<RippleEffect[]>([]);
 
-  
   useLayoutEffect(() => {
     const timeoutIds: NodeJS.Timeout[] = [];
     if (ripples.length > 0) {
@@ -93,7 +92,7 @@ const RippleButton = ({
       {ripples.map((ripple) => (
         <span
           key={ripple.key}
-          className="absolute bg-white/40 rounded-full animate-ripple pointer-events-none z-0" 
+          className="absolute bg-white/40 rounded-full animate-ripple pointer-events-none z-0"
           style={{
             top: ripple.y,
             left: ripple.x,

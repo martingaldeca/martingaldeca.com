@@ -6,10 +6,8 @@ const BASE_URL = "https://martingaldeca.com";
 const LOCALES = ["en", "es"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  
   const routes = ["", "/projects", "/personal"];
 
-  
   const essaysDir = path.join(process.cwd(), "src/content/essays");
   let essaySlugs: string[] = [];
   try {
@@ -21,12 +19,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("Error reading essays directory:", error);
   }
 
-  
-  
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   for (const locale of LOCALES) {
-    
     for (const route of routes) {
       sitemapEntries.push({
         url: `${BASE_URL}/${locale}${route}`,
@@ -36,20 +31,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    
     for (const slug of essaySlugs) {
       sitemapEntries.push({
         url: `${BASE_URL}/${locale}/personal/essays/${slug}`,
-        lastModified: new Date(), 
+        lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.7,
       });
     }
   }
-
-  
-  
-  
 
   return sitemapEntries;
 }
