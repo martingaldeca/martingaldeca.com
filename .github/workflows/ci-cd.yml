@@ -97,10 +97,13 @@ jobs:
             Port ${{ secrets.SSH_PORT || '22' }}
             StrictHostKeyChecking no
             IdentityFile ~/.ssh/id_rsa
-            ProxyCommand cloudflared access ssh --hostname %h --id ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_ID }} --secret ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_SECRET }}
+            ProxyCommand cloudflared access ssh --hostname %h
           EOF
 
       - name: Deploy
+        env:
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_SECRET }}
         run: |
           ssh target << 'EOF'
             # Navigate to project directory
