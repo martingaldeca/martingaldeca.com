@@ -1,0 +1,63 @@
+% Estructuración del documento básica y carga de paquetes
+
+%----------------------------------------------------------------------------------------
+%   Paquetes requeridos
+%----------------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc} % Codificación (ñ,á,é...)
+\usepackage[spanish]{babel} % Idioma
+\usepackage{amsmath} % Fórmulas
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{titlesec} % Para subsubsubsecciones
+\usepackage{subcaption} % Para graficas de varias imagenes
+\usepackage{graphicx} % Imágenes
+\usepackage{fancyhdr} % Headers
+\usepackage{enumerate} % Listas enumeradas
+\usepackage{color} % Colores
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{tabularx} % Tablas
+\usepackage{array}
+\usepackage{listings}
+\usepackage[top=2cm]{geometry} % Margenes
+\usepackage{eurosym} % Para el símbolo del euro
+\usepackage{lipsum} % Para textos de relleno
+\usepackage[table]{xcolor} % Para tablas de colores
+\definecolor{azulLink}{RGB}{0,0,102} % Color para links
+\usepackage[colorlinks = true, linkcolor =  azulLink, citecolor = green, urlcolor = blue]{hyperref}
+\graphicspath{ {../Imagenes/} } % Path de las imágenes
+
+%----------------------------------------------------------------------------------------
+%	Colores
+%----------------------------------------------------------------------------------------
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+\definecolor{rojoClaro}{RGB}{217,80,48}
+\definecolor{comentario}{RGB}{100,100,100}
+\definecolor{reservada}{RGB}{152, 18, 100}
+
+%----------------------------------------------------------------------------------------
+%	Espaciados
+%----------------------------------------------------------------------------------------
+\setlength{\parskip}{5mm}
+
+%----------------------------------------------------------------------------------------
+%	Comandos personalizados
+%----------------------------------------------------------------------------------------
+% Pagina en blanco
+\newcommand{\NuevaPagina}[0]
+{
+    \thispagestyle{empty}
+        \textcolor[rgb]{1.00,1.00,1.00}{.}
+    \newpage
+}
+
+\def\code#1{\texttt{#1}} % Para poder usar /code{} directamente
+
+% Para centar en tablas
+\newcommand{\centered}[1]{\begin{tabular}{l} #1 \end{tabular}}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand{\tabularxcolumn}[1]{m{#1}} % Modifica la columna X para centrar verticalmente

@@ -1,0 +1,105 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+
+jobs:
+  validate:
+    name: Validate Codebase
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Validation (Lint, Typecheck, Format, Audit)
+        run: pnpm run validate
+
+      - name: Verify Build
+        run: pnpm run build
+
+  test:
+    name: Run Tests
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: Run Component Tests
+        run: pnpm run test:ct
+
+      - name: Run E2E Tests
+        run: pnpm run test:e2e
+
+      - name: Upload Test Report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 5
+
+  deploy:
+    name: Deploy to Production
+    needs: test
+    if: github.ref == 'refs/heads/production'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || '22' }}
+          script: |
+            # Navigate to project directory (adjust path as needed)
+            cd ~/martingaldeca.com || exit 1
+
+            # Pull latest changes
+            git pull origin production
+
+            # Install dependencies
+            pnpm install --frozen-lockfile
+
+            # Build application
+            pnpm run build
+
+            # Restart application using PM2
+            # Assuming app is managed by PM2 with name 'martingaldeca'
+            export PORT=${{ secrets.APP_PORT || 3000 }}
+            pm2 reload martingaldeca --update-env || pm2 start npm --name "martingaldeca" -- start

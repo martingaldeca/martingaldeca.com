@@ -1,0 +1,122 @@
+/* ═══════════════════════════════════════════════════════════
+   AnimatedGradient — Orbiting color blobs with blur
+   Inspired by Framer's animated gradient / warp shader.
+   ═══════════════════════════════════════════════════════════ */
+
+.animated-gradient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.animated-gradient__blob {
+  position: absolute;
+  width: 40%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: var(--blob-opacity, 0.55);
+  filter: blur(var(--ag-blur, 80px));
+  mix-blend-mode: var(--blob-blend, screen);
+  will-change: transform;
+  animation: ag-orbit var(--ag-speed, 12s) ease-in-out infinite alternate;
+}
+
+/* Each blob gets a slightly different orbit via nth-child */
+.animated-gradient__blob:nth-child(1) {
+  top: 10%;
+  animation-name: ag-orbit-1;
+}
+
+.animated-gradient__blob:nth-child(2) {
+  top: 40%;
+  animation-name: ag-orbit-2;
+}
+
+.animated-gradient__blob:nth-child(3) {
+  top: 60%;
+  animation-name: ag-orbit-3;
+}
+
+.animated-gradient__blob:nth-child(4) {
+  top: 20%;
+  animation-name: ag-orbit-4;
+}
+
+.animated-gradient__blob:nth-child(5) {
+  top: 50%;
+  animation-name: ag-orbit-5;
+}
+
+/* ── Keyframes for orbiting blobs ────────────────────────── */
+@keyframes ag-orbit-1 {
+  0% {
+    transform: translate(-30%, -20%) scale(1);
+  }
+
+  50% {
+    transform: translate(30%, 20%) scale(1.15);
+  }
+
+  100% {
+    transform: translate(-10%, 40%) scale(0.95);
+  }
+}
+
+@keyframes ag-orbit-2 {
+  0% {
+    transform: translate(20%, -30%) scale(1.1);
+  }
+
+  50% {
+    transform: translate(-40%, 10%) scale(0.9);
+  }
+
+  100% {
+    transform: translate(10%, -20%) scale(1.05);
+  }
+}
+
+@keyframes ag-orbit-3 {
+  0% {
+    transform: translate(-20%, 20%) scale(0.95);
+  }
+
+  50% {
+    transform: translate(30%, -30%) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-30%, 10%) scale(1);
+  }
+}
+
+@keyframes ag-orbit-4 {
+  0% {
+    transform: translate(30%, 10%) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-20%, -20%) scale(0.85);
+  }
+
+  100% {
+    transform: translate(20%, 30%) scale(1.1);
+  }
+}
+
+@keyframes ag-orbit-5 {
+  0% {
+    transform: translate(-10%, -40%) scale(1);
+  }
+
+  50% {
+    transform: translate(20%, 20%) scale(1.15);
+  }
+
+  100% {
+    transform: translate(-30%, -10%) scale(0.9);
+  }
+}

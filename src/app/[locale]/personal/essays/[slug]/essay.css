@@ -1,0 +1,311 @@
+/* ═══════════════════════════════════════════════════════════
+   Essay Page Styles — Inspired by LaTeX academic formatting
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Container ───────────────────────────────────────────── */
+.essay-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.essay-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.essay-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 768px) {
+  .essay-title {
+    font-size: 3rem;
+  }
+}
+
+.essay-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-family: "Inter", monospace;
+}
+
+.meta-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.meta-type {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Content Body — Typography similar to LaTeX article class
+   ═══════════════════════════════════════════════════════════ */
+.essay-content {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--color-text-secondary);
+}
+
+/* ── Headers ─────────────────────────────────────────────── */
+.essay-content h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--surface-border);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.essay-content h2:first-child {
+  margin-top: 0;
+}
+
+.essay-content h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* ── Paragraphs ──────────────────────────────────────────── */
+.essay-content p {
+  margin-bottom: 1.25rem;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* ── Bold & Italic ───────────────────────────────────────── */
+.essay-content strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.essay-content em {
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+/* ── Links ───────────────────────────────────────────────── */
+.essay-content a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.essay-content a:hover {
+  color: #1a6bba;
+  border-bottom-color: var(--color-primary);
+}
+
+/* ── Citation Links (superscript numbers) ────────────────── */
+.citation-link {
+  color: var(--color-primary) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  font-weight: 600;
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
+  display: inline;
+}
+
+.citation-link sup {
+  font-size: 0.75em;
+  vertical-align: super;
+  color: var(--color-primary);
+  font-weight: 700;
+  padding: 0 1px;
+}
+
+.citation-link:hover {
+  color: #1a6bba !important;
+}
+
+.citation-link:hover sup {
+  color: #1a6bba;
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Figures — Centered with captions like LaTeX
+   ═══════════════════════════════════════════════════════════ */
+.essay-figure {
+  margin: 2.5rem auto;
+  text-align: center;
+  max-width: 100%;
+}
+
+.essay-figure img {
+  display: block;
+  margin: 0 auto;
+  max-width: 85%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.essay-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  text-align: center;
+}
+
+.essay-figure figcaption:empty {
+  display: none;
+}
+
+/* Figure grids (side by side, like LaTeX minipages) */
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  align-items: start;
+}
+
+.figure-grid .essay-figure {
+  margin: 0;
+}
+
+.figure-grid .essay-figure img {
+  max-width: 100%;
+}
+
+/* Signature image (smaller) */
+.essay-signature {
+  max-width: 200px;
+  margin: 2rem auto;
+}
+
+.essay-signature img {
+  max-width: 100% !important;
+  box-shadow: none;
+  border-radius: 0;
+  /* Invert for dark background if signature is dark on white */
+  filter: invert(1) brightness(0.9);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   References Section — Styled like LaTeX bibliography
+   ═══════════════════════════════════════════════════════════ */
+.references-list {
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.reference-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.5rem 0;
+  margin-bottom: 0.25rem !important;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  text-align: left !important;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.reference-item:last-child {
+  border-bottom: none;
+}
+
+.ref-num {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.85em;
+  flex-shrink: 0;
+  min-width: 2rem;
+}
+
+.reference-item a {
+  color: var(--color-primary) !important;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent !important;
+  transition: border-color 0.2s ease;
+}
+
+.reference-item a:hover {
+  border-bottom-color: var(--color-primary) !important;
+}
+
+.ref-site {
+  color: var(--text-muted);
+  font-size: 0.8em;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Dialogue lines — indent like LaTeX
+   ═══════════════════════════════════════════════════════════ */
+.essay-content p > strong:first-child {
+  /* When paragraph starts with bold (dialogue speaker name) */
+  color: var(--color-text-primary);
+}
+
+/* ── Responsive Fixes ────────────────────────────────────── */
+@media (max-width: 640px) {
+  .essay-content {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .essay-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .essay-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .essay-figure img {
+    max-width: 100%;
+  }
+
+  .figure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reference-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+/* ── Scroll offset for citation anchors ──────────────────── */
+.reference-item[id] {
+  scroll-margin-top: 8rem;
+}
+
+/* Smooth scroll for the whole page */
+html {
+  scroll-behavior: smooth;
+}

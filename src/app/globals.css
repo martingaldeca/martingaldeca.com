@@ -1,26 +1,140 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-primary: #0f4c81;
+  --color-primary-light: #1a6bba;
+  --color-accent: #ff7e21;
+  --color-accent-light: #ff9a4d;
 
-@theme inline {
+  /* ── Static tokens (not theme-dependent) ────────────── */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* ── Map to CSS variables for theme-aware Tailwind classes ── */
+  --color-bg: var(--background);
+  --color-bg-light: var(--background);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-card-bg: var(--surface);
+  --color-card-border: var(--surface-border);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ═══════════════════════════════════════════════════════════
+   Theme Variables — light (default) & dark
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --background: #f5f5f7;
+  --foreground: #18181b;
+  --surface: rgba(0, 0, 0, 0.03);
+  --surface-border: rgba(0, 0, 0, 0.08);
+  --surface-hover: rgba(0, 0, 0, 0.06);
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  --overlay: rgba(0, 0, 0, 0.05);
+  --scrollbar-track: #f5f5f7;
+  --scrollbar-thumb: #d4d4d8;
+  --scrollbar-thumb-hover: #a1a1aa;
+  --header-bg: rgba(245, 245, 247, 0.8);
+  --header-border: rgba(0, 0, 0, 0.06);
+  --filing-color: rgba(0, 0, 0, 0.12);
+  --blob-blend: multiply;
+  --blob-opacity: 0.35;
+}
+
+.dark {
+  --background: #0a0a0b;
+  --foreground: #ffffff;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --overlay: rgba(255, 255, 255, 0.05);
+  --scrollbar-track: #0a0a0b;
+  --scrollbar-thumb: #333;
+  --scrollbar-thumb-hover: #555;
+  --header-bg: rgba(10, 10, 11, 0.8);
+  --header-border: rgba(255, 255, 255, 0.05);
+  --filing-color: rgba(255, 255, 255, 0.15);
+  --blob-blend: screen;
+  --blob-opacity: 0.55;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Theme View Transition — sweeps actual content, no blank page
+   ═══════════════════════════════════════════════════════════ */
+
+/* The old snapshot stays in place */
+::view-transition-old(root) {
+  animation: none;
+  z-index: 1;
+}
+
+/* The new snapshot (with the new theme already applied) sweeps in */
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+/* To dark → new theme sweeps left-to-right */
+:root[data-theme-transition="to-dark"]::view-transition-new(root) {
+  animation: vt-sweep-ltr 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* To light → new theme sweeps right-to-left */
+:root[data-theme-transition="to-light"]::view-transition-new(root) {
+  animation: vt-sweep-rtl 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes vt-sweep-ltr {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes vt-sweep-rtl {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
 }

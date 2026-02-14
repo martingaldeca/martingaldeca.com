@@ -1,0 +1,43 @@
+/* ═══════════════════════════════════════════════════════════
+   SectionHeader — header block with animated gradient bg
+   ═══════════════════════════════════════════════════════════ */
+
+.section-header {
+  position: relative;
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+}
+
+.section-header__content {
+  position: relative;
+  z-index: 1;
+}
+
+.section-header__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .section-header__title {
+    font-size: 3.75rem;
+  }
+}
+
+.section-header__subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.7;
+}

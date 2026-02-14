@@ -1,0 +1,160 @@
+{
+  "Header": {
+    "projects": "Projects",
+    "personal": "Personal",
+    "philosophy": "Philosophy",
+    "contact": "Get in Touch"
+  },
+  "Metadata": {
+    "title": "Martín Galdeano Cañizares | CTO & Tech Lead",
+    "description": "Bridging the gap between scalable technology and human creativity. Architecting systems with logic, leading teams with empathy."
+  },
+  "Hero": {
+    "name": "Martín",
+    "surname": "Galdeano Cañizares",
+    "title": "CTO | Tech Lead | Full Stack Developer",
+    "tagline1": "Bridging the gap between scalable technology and human creativity.",
+    "tagline2": "Architecting systems with logic, leading teams with empathy.",
+    "viewWork": "View Work",
+    "aboutMe": "About Me"
+  },
+  "About": {
+    "title": "About Me",
+    "heading1": "Logic meets",
+    "heading2": "Creativity.",
+    "quote": "To code is to reason. To lead is to understand. I strive to do both with clarity and purpose.",
+    "intro1": "Hello, I'm {name}. I operate at the intersection of technical excellence and strategic leadership. With over a decade of experience developing applications, I've evolved from a hands-on developer to a Tech Lead and CTO, driven by a passion for building robust architectures and fostering healthy engineering cultures.",
+    "intro2": "My journey began with studies in Theoretical Physics at the Complutense University of Madrid, which grounded my approach in complex problem solving. While I handle Python and TypeScript fluently, I also find resonance in the rhythm of poetry and the rigorous logic of philosophy and politics. This unique blend of interests allows me to approach technical problems with a creative, holistic mindset—seeing the code not just as instructions, but as a language of logic that shapes our digital reality.",
+    "skillEngineering": "Engineering & Tech",
+    "skillLeadership": "Leadership",
+    "beyondCode": "Beyond the Code",
+    "philosophyTitle": "Philosophy",
+    "philosophyDesc": "Existentialism & Logic",
+    "musicTitle": "Music",
+    "musicDesc": "Composition & Rhythm",
+    "poetryTitle": "Poetry",
+    "poetryDesc": "Expression & Form",
+    "skills": {
+      "fullstack": "Full Stack (Node, Django, React, Next.js)",
+      "cloud": "Cloud Infrastructure (AWS, Azure, GCP)",
+      "architecture": "System Architecture & Scalability",
+      "strategy": "Technical Strategy & Roadmap Planning",
+      "mentorship": "Mentorship & Team Building",
+      "agile": "Agile Process Optimization"
+    }
+  },
+  "Projects": {
+    "metaTitle": "Projects | Martín Galdeano Cañizares",
+    "metaDescription": "A showcase of technical projects ranging from AI-powered platforms to system utilities and automation workflows.",
+    "title": "Selected Personal Works",
+    "subtitle": "A collection of projects exploring the boundaries of code, logic, and creativity. From low-level system tools to high-level web applications.",
+    "viewCode": "View Code",
+    "visitWebsite": "Visit Website",
+    "items": {
+      "atlas": {
+        "title": "Ideological Atlas",
+        "description": "A comprehensive platform visualizing the complex landscape of political ideologies through graph theory and interactive node mapping. Explore the connections between different schools of thought."
+      },
+      "debaite": {
+        "title": "Debaite",
+        "description": "An AI-powered debate platform designed to sharpen critical thinking. Engage in structured arguments against an advanced language model trained to challenge your perspectives."
+      },
+      "katia": {
+        "title": "Katia",
+        "description": "A sophisticated virtual assistant framework built for modularity and extensibility. Handles context-aware conversations and integrates with various system utilities."
+      },
+      "restcountries": {
+        "title": "REST Countries CLI",
+        "description": "A blazing fast command-line interface for querying country data. Built for developers who prefer the terminal over a browser tab for quick geographical lookups."
+      },
+      "housechecker": {
+        "title": "HouseChecker",
+        "description": "An automated property monitoring workflow built with n8n. Scrapes listing sites, filters by custom criteria, and sends instant notifications to Telegram/Discord."
+      },
+      "semantic": {
+        "title": "Semantic Version Tool",
+        "description": "A strict utility for managing semantic versioning in CI/CD pipelines. Ensures that version bumps follow the correct major/minor/patch logic based on commit messages."
+      }
+    }
+  },
+  "Personal": {
+    "metaTitle": "Personal | Martín Galdeano Cañizares",
+    "metaDescription": "Poetry, essays, and music. A personal space for creativity and expression.",
+    "title": "Personal Space",
+    "subtitle": "A sanctuary for thoughts, rhythms, and verses. Where logic rests and creativity flows.",
+    "poetry": "Poetry",
+    "essays": "Essays",
+    "music": "Music",
+    "poetryIntro": "Verses written in the quiet hours. Reflections on nature, existence, and the human condition.",
+    "essaysIntro": "Long-form thoughts on technology, philosophy, politics, and the intersection of these.",
+    "musicIntro": "Compositions and sonic experiments.",
+    "handmadeDisclaimer": "All written content (Poetry, Essays) is original and handmade. The music tracks are generated using Suno AI.",
+    "comingSoon": "Coming soon...",
+    "noEssays": "Essays are being prepared. Check back soon.",
+    "noMusic": "Music tracks are being prepared. Check back soon.",
+    "poems": {
+      "la-luna": {
+        "title": "La Luna",
+        "author": "Martín Galdeano Cañizares",
+        "year": "2025",
+        "body": "Ella, nos mira desde la inmensa oscuridad\nella, aunque cambiando, sigue como siempre\nella, sujeta por la fuerza de la gravedad\nsospecho que padece, e intuyo que siente.\n\nDicen que es fría, como un glaciar en deriva\ncuentan que gira, para que no veamos sus heridas\nhablan de su continua caída, fija y medida\nle susurran deseos estando a escondidas.\n\nSu superficie, es un mar de alimento maternal\ncubre su interior con un espeso manto doble\ny profunda, arde por dentro, con un calor infernal\nseguirá estando ahí, aunque aquí el viento no sople.\n\nNaces siempre en la noche nueva y oscura\ncuando no te veo y te llamo, desde el oriente me buscas\nllena me encuentras y me aplicas tu cura\ny cuando por fin te he hallado, al oeste mudas.\n\n¿En qué piensas estando en penumbra?\n¿A quién miras con tu rostro velado?\n¿Cómo lloras cuando tu piel retumba?\n¿Dónde te busco, cuando estoy asustado?\n\nSé que él te persigue, y siempre te quema\nSé que tú huyes, a la caza de su sombra\nSé que yo te invoco, si me invade la pena.\nLa luna me cuida, me quiere y me lleva."
+      },
+      "libre": {
+        "title": "Libre",
+        "author": "Martín Galdeano Cañizares",
+        "year": "",
+        "body": "No, no termina donde empieza la tuya.\nNo, no me basta con que no me amenacen.\nNo, no quiero que la gente, por miedo, huya.\nNo, tus definiciones no me satisfacen.\n\nTú piensas que si nadie te obliga, todo está bien,\nque puedes hacer y decir cuanto te plazca mientras no portes un arma.\nQue la pureza de tu dicotomía seguro la explica algún gen,\npero creo, que en verdad no estás entendiendo nada.\n\nNo es tan sencillo como hablar del bien y del mal,\ndiciendo, que mientras no obligues, tus palabras son inocuas para la voluntad.\nIncitas a un camino ejerciendo tu poder actual,\npresionando para que actúen como quieres, según tú, \"sin maldad\".\n\nDefinición maniquea que usas a la defensiva,\ndisfrutando de una posición superior en la escala social.\nObviando los problemas que provocan tus misivas,\na toda la gente que no goza de un ápice de verdadera libertad.\n\nY tú hablas de mis privilegios, no de mis derechos,\nde los que yo, por poseedor de bálano en cuerpo nevado disfruto.\nPérfido insulto a quienes condicionan sus pechos,\na quienes su tegumento viste y marca, obligando a ser enjutos.\n\nNunca hablas de persuasión, del silencio implícito de tus sentencias,\nnunca defiendes a quienes la presión aplasta en sus decisiones.\nSiempre apoyas a cualquiera que sin violencia explícita, realiza sus injerencias,\nobviando que Asch ya refutó todas tus disparatadas perversiones.\n\nNo, no hay sentido común en tus palabras.\nNo, no hay sabiduría en tus mentiras.\nNo, no hay libertad en tus encrucijadas.\nLo único que posees son ideas dañinas."
+      }
+    },
+    "songs": {
+      "la-luna": {
+        "title": "La Luna",
+        "description": "A musical interpretation of the poem 'La Luna'. 'She watches us from the immense darkness...'"
+      },
+      "libre": {
+        "title": "Libre",
+        "description": "Musical adaptation of the poem 'Libre'. A critique of hollow definitions of freedom."
+      }
+    },
+    "essayList": {
+      "el-liberal-libertario": {
+        "title": "The Liberal Libertarian",
+        "summary": "Analyzing the contradictions of the term 'liberal libertarian', from its origins as a synonym for neofascism according to Clouscard, to the current political reality under Bukele and the fallacy of the Nolan chart.",
+        "date": "December 2025"
+      },
+      "disertacion-sobre-la-entropia": {
+        "title": "A Dissertation on Entropy",
+        "summary": "An exploration of the concept of entropy beyond simple 'disorder', connecting Boltzmann's thermodynamics with the direction of time and the heat death of the universe.",
+        "date": "July 2025"
+      },
+      "valencia-inundada": {
+        "title": "Valencia Flooded",
+        "summary": "An exhaustive analysis of the disaster caused by the DANA in the Valencian Community: the ignored warnings, the management of regional and central administrations, and the dangerous influence of anti-system influencers.",
+        "date": "December 2024"
+      },
+      "debate-interno-sobre-el-mal": {
+        "title": "Internal Debate on Evil",
+        "summary": "A philosophical-theological reflection on the problem of evil, Epicurus' paradox and the goodness of God from an agnostic perspective, exploring logical paths to safeguard divine goodness.",
+        "date": "September 2024"
+      },
+      "la-religion-y-la-politica": {
+        "title": "Religion and Politics",
+        "summary": "A data-driven analysis using CIS surveys on the relationship between Catholicism and political conservatism in Spain, exploring the historical reasons for this association and its implications for the future of religion.",
+        "date": "June 2024"
+      },
+      "el-caso-de-begona-gomez": {
+        "title": "The Begoña Gómez Case",
+        "summary": "An analysis of the media case against Begoña Gómez arguing it is a textbook lawfare case, examining the Manos Limpias complaint, Judge Peinado's irregularities and the political context.",
+        "date": "January 2024"
+      },
+      "queja-y-propuesta": {
+        "title": "Complaint and Proposal",
+        "summary": "A critique of the current representative government and a proposal for an alternative system: the certified weighted epistocracy, where voting power adjusts based on the citizen's training in each domain.",
+        "date": "January 2020"
+      }
+    }
+  },
+  "Footer": {
+    "copyright": "© {year} Martín Galdeano Cañizares. All rights reserved."
+  }
+}

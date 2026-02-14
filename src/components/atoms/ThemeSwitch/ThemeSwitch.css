@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════════════════
+   ThemeSwitch — Animated toggle (Radix-style)
+   ═══════════════════════════════════════════════════════════ */
+
+.theme-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 46px;
+  height: 24px;
+  padding: 2px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+/* Track behind the thumb */
+.theme-switch__track {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Dark state — deep indigo track */
+.theme-switch[data-theme="dark"] .theme-switch__track {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.3),
+    0 0 8px rgba(99, 102, 241, 0.15);
+}
+
+/* Light state — warm sky track */
+.theme-switch[data-theme="light"] .theme-switch__track {
+  background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.08),
+    0 0 8px rgba(59, 130, 246, 0.1);
+}
+
+/* Thumb */
+.theme-switch__thumb {
+  position: relative;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.theme-switch[data-theme="dark"] .theme-switch__thumb {
+  background: #818cf8;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(129, 140, 248, 0.3);
+}
+
+.theme-switch[data-theme="light"] .theme-switch__thumb {
+  background: #fbbf24;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.12),
+    0 0 10px rgba(251, 191, 36, 0.3);
+}
+
+/* ── Justify-content trick for layout animation ──── */
+.theme-switch[data-theme="dark"] {
+  justify-content: flex-end;
+}
+
+.theme-switch[data-theme="light"] {
+  justify-content: flex-start;
+}
+
+/* Icon */
+.theme-switch__icon {
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.theme-switch[data-theme="light"] .theme-switch__icon {
+  color: #78350f;
+}
+
+/* Focus ring */
+.theme-switch:focus-visible .theme-switch__track {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Hover glow */
+.theme-switch:hover .theme-switch__thumb {
+  transform: scale(1.05);
+}
