@@ -84,41 +84,21 @@ jobs:
           curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
           sudo dpkg -i cloudflared.deb
 
-      - name: Configure SSH
+      - name: Deploy via Cloudflare Tunnel
+        env:
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_SECRET }}
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-          cat >> ~/.ssh/config <<EOF
-          Host target
-            HostName ${{ secrets.SSH_HOST }}
-            User ${{ secrets.SSH_USERNAME }}
-            Port ${{ secrets.SSH_PORT || '22' }}
-            StrictHostKeyChecking no
-            IdentityFile ~/.ssh/id_rsa
-            ProxyCommand cloudflared access ssh --hostname %h
-          EOF
+          cloudflared access tcp --hostname ${{ secrets.SSH_HOST }} --url localhost:2222 &
+          sleep 3
 
-      - name: Deploy
-        env:
-          CF_ACCESS_CLIENT_ID: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_ID }}
-          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_SECRET }}
-        run: |
-          ssh target << 'EOF'
-            # Navigate to project directory
-            cd ~/martingaldeca.com || exit 1
-
-            # Pull latest changes
-            git pull origin production
-
-            # Install dependencies
-            pnpm install --frozen-lockfile
-
-            # Build application
-            pnpm run build
-
-            # Restart application using PM2
-            export PORT=${{ secrets.APP_PORT || 3000 }}
-            pm2 reload martingaldeca --update-env || pm2 start npm --name "martingaldeca" -- start
-          EOF
+          ssh -T -p 2222 \
+            -o StrictHostKeyChecking=no \
+            -o UserKnownHostsFile=/dev/null \
+            -i ~/.ssh/id_rsa \
+            ${{ secrets.SSH_USERNAME }}@localhost \
+            'cd ~/martingaldeca.com && git pull origin production && pnpm install --frozen-lockfile && pnpm run build && export PORT=${{ secrets.APP_PORT || 3000 }} && (pm2 reload martingaldeca --update-env || pm2 start npm --name "martingaldeca" -- start)'
