@@ -79,15 +79,31 @@ jobs:
     if: github.ref == 'refs/heads/production'
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT || '22' }}
-          script: |
-            # Navigate to project directory (adjust path as needed)
+      - name: Install cloudflared
+        run: |
+          curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+          sudo dpkg -i cloudflared.deb
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+          cat >> ~/.ssh/config <<EOF
+          Host target
+            HostName ${{ secrets.SSH_HOST }}
+            User ${{ secrets.SSH_USERNAME }}
+            Port ${{ secrets.SSH_PORT || '22' }}
+            StrictHostKeyChecking no
+            IdentityFile ~/.ssh/id_rsa
+            ProxyCommand cloudflared access ssh --hostname %h
+          EOF
+
+      - name: Deploy
+        run: |
+          ssh target << 'EOF'
+            # Navigate to project directory
             cd ~/martingaldeca.com || exit 1
 
             # Pull latest changes
@@ -100,6 +116,6 @@ jobs:
             pnpm run build
 
             # Restart application using PM2
-            # Assuming app is managed by PM2 with name 'martingaldeca'
             export PORT=${{ secrets.APP_PORT || 3000 }}
             pm2 reload martingaldeca --update-env || pm2 start npm --name "martingaldeca" -- start
+          EOF
