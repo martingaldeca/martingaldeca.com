@@ -105,4 +105,5 @@ The project is automatically deployed to production via GitHub Actions upon push
 4. **Deploys**: Updates the production server using SSH and PM2 (zero-downtime, utilizing `APP_PORT`).
 
 ---
-*Created by [Martin Galdeca](https://martingaldeca.com)*
+
+_Created by [Martin Galdeca](https://martingaldeca.com)_

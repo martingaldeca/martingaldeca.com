@@ -38,7 +38,7 @@ En ese momento, como expondré un poco más adelante, ya supe perfectamente que 
 
 No estoy seguro de si no me escucho, no me quiso escuchar, o simplemente lo ignoró, pero enseguida me dijo:
 
-**X**: "_Pero entonces a ver, tu por ejemplo el _CECOT_ del _Salvador_, ¿bien o mal?_"
+**X**: "_Pero entonces a ver, tu por ejemplo el \_CECOT_ del _Salvador_, ¿bien o mal?\_"
 
 Ingenuo de mí pensé, vale, es liberal libertario y ya ha insinuado que soy totalitario, por lo que aquí podemos coincidir y empezar a reconstruir la conversación desde una postura común.
 
