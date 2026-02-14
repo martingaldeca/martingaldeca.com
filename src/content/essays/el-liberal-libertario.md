@@ -34,11 +34,11 @@ No obstante, como persona coherente que intento ser, siempre tiendo la mano a qu
 
 En ese momento, como expondré un poco más adelante, ya supe perfectamente que la conversación no llegaría a ningún lado, así que simplemente esbocé una sonrisa falsa y volví a mi plato. Pero justo después pensé, bueno, vamos a dar el beneficio de la duda, quizá al yo decir que estaba en una posición contraria he predispuesto la conversación, yo y no él, a que la conversación termine.
 
-**Yo**: "*En realidad en términos económicos yo defiendo la *Teoría Monetaria Moderna\*\*"
+**Yo**: "*En realidad en términos económicos yo defiendo la*Teoría Monetaria Moderna\*\*"
 
 No estoy seguro de si no me escucho, no me quiso escuchar, o simplemente lo ignoró, pero enseguida me dijo:
 
-**X**: "*Pero entonces a ver, tu por ejemplo el *CECOT* del *Salvador*, ¿bien o mal?*"
+**X**: "_Pero entonces a ver, tu por ejemplo el _CECOT_ del _Salvador_, ¿bien o mal?_"
 
 Ingenuo de mí pensé, vale, es liberal libertario y ya ha insinuado que soy totalitario, por lo que aquí podemos coincidir y empezar a reconstruir la conversación desde una postura común.
 

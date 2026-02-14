@@ -1,7 +1,6 @@
 # Martin Galdeca's Personal Website - martingaldeca.com
 
 ![CI/CD Pipeline](https://github.com/martingaldeca/martingaldeca.com/actions/workflows/ci-cd.yml/badge.svg)
-![Lines of Code](https://img.shields.io/tokei/lines/github/martingaldeca/martingaldeca.com)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&style=flat-square)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?logo=react&style=flat-square)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&style=flat-square)](https://www.typescriptlang.org/)
@@ -25,16 +24,19 @@ A modern, high-performance personal portfolio and blog built with the latest web
 ## 🛠️ Tech Stack
 
 ### Core
+
 - **Framework**: [Next.js 16](https://nextjs.org/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 
 ### Content & Logic
+
 - **i18n**: [next-intl](https://next-intl-docs.vercel.app/)
 - **Markdown**: `react-markdown`, `rehype-katex`, `remark-math`, `rehype-raw`
 
 ### Tooling & QA
+
 - **Package Manager**: [pnpm](https://pnpm.io/)
 - **Testing**: [Playwright](https://playwright.dev/)
 - **Linting**: [ESLint](https://eslint.org/)
@@ -97,10 +99,10 @@ pnpm run format
 
 The project is automatically deployed to production via GitHub Actions upon pushing to the `main` branch. The pipeline:
 
-1.  **Validates**: Runs linting, type-checking, and audits.
-2.  **Tests**: Executes the full Playwright test suite.
-3.  **Builds**: Verifies the production build succeeds.
-4.  **Deploys**: Updates the production server using SSH and PM2 (zero-downtime, utilizing `APP_PORT`).
+1. **Validates**: Runs linting, type-checking, and audits.
+2. **Tests**: Executes the full Playwright test suite.
+3. **Builds**: Verifies the production build succeeds.
+4. **Deploys**: Updates the production server using SSH and PM2 (zero-downtime, utilizing `APP_PORT`).
 
 ---
 *Created by [Martin Galdeca](https://martingaldeca.com)*
